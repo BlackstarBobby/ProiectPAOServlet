@@ -13,10 +13,10 @@
     <Resource name="jdbc/metro"
               auth="Container"
               type="javax.sql.DataSource"
-              username="paoUser"
-              password="paoPassword"
+              username="bobby"
+              password="goodBYE1!"
               driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://82.76.115.105:3306/pao"
+              url="jdbc:mysql://ihatethis.ddns.net:3306/metro"
               maxActive="15"
               maxIdle="3"/>
 
