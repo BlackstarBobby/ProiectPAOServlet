@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/test">
+    <!--<Resource name="jdbc/pao"-->
+              <!--auth="Container"-->
+              <!--type="javax.sql.DataSource"-->
+              <!--username="paoUser"-->
+              <!--password="paoPassword"-->
+              <!--driverClassName="com.mysql.jdbc.Driver"-->
+              <!--url="jdbc:mysql://82.76.115.105:3306/pao"-->
+              <!--maxActive="15"-->
+              <!--maxIdle="3"/>-->
+
+    <Resource name="jdbc/metro"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="paoUser"
+              password="paoPassword"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://82.76.115.105:3306/pao"
+              maxActive="15"
+              maxIdle="3"/>
+
+</Context>
