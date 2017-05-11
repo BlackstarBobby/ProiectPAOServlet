@@ -15,12 +15,21 @@ and open the template in the editor.
 -->
 <html>
 <head>
-    <title>hw</title>
+    <title>MetroExpress - Home</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<a href="AdaugareCartele">Go to servlet</a>
+<%--<a href="AdaugareCartele">Go to servlet</a>--%>
+
+
 <body>
+
+<div id="Container">
+    <a href="Adauga%20Cartele.jsp">Adauga Cartele</a>
+    <a href="">Link 2</a>
+    <a href="">Link 3</a>
+    <a href="">Link 4</a>
+</div>
 
 </body>
 </html>
