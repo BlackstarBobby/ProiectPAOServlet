@@ -26,7 +26,7 @@ and open the template in the editor.
 
 <div id="Container">
     <a href="Adauga%20Cartele.jsp">Adauga Cartele</a>
-    <a href="">Link 2</a>
+    <a href="ValidareCartela.jsp">Validare Cartela</a>
     <a href="">Link 3</a>
     <a href="">Link 4</a>
 </div>

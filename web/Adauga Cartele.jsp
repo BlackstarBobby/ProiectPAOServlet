@@ -24,16 +24,21 @@
     <input type="checkbox" name="abonamentLunar"> Abonament Lunar
     <input type="text" name="nrAbonamentLunar" value="Bucati">
     <br>
-    <input type="checkbox" name="abonament zi"> Abonament Zi
+    <input type="checkbox" name="abonamentZi"> Abonament Zi
     <input type="text" name="nrAbonamenteZi" value="Bucati">
     <br>
     <input type="checkbox" name="cartela"> Cartela
-    <input type="checkbox" name="10 calatorii"> 10 Calatorii
-    <input type="checkbox" name="2 calatorii"> 2 Calatorii
-    <input type="text" name="nrCartela" value="Bucati">
+    <input type="checkbox" name="10calatorii"> 10 Calatorii
+    <input type="text" name="nrCartela10" value="Bucati">
+    <input type="checkbox" name="2calatorii"> 2 Calatorii
+    <input type="text" name="nrCartela2" value="Bucati">
     <br>
     <input type="submit" value="Submit">
 </form>
+
+<p>${message}</p>
+
+<a href="index.jsp">Back</a>
 
 
 </body>
