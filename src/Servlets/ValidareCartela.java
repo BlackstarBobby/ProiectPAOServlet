@@ -1,7 +1,5 @@
 package Servlets;
 
-import com.sun.org.apache.regexp.internal.RE;
-
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,11 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.*;
-import java.time.LocalDateTime;
-import java.util.Date;
 
-import static java.lang.System.out;
-import static utils.Database.*;
+import static Connectivity.Database.*;
 
 /**
  * Created by bobby on 12-05-2017.

@@ -1,10 +1,13 @@
-package utils;
+package Connectivity;
+
+import utils.Data;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  * Created by bobby on 14-05-2017.
@@ -21,7 +24,7 @@ public class Database {
             SessionIdentifierGenerator sig = new SessionIdentifierGenerator();
 
             for (int i = 0; i < Integer.parseInt(bucati); i++) {
-                String serial = "";
+                String serial;
                 do {
                     serial = sig.nextSessionId();
                 } while (checkUniqueSerial(serial, conn));
@@ -240,6 +243,46 @@ public class Database {
         }
         return false;
     }
+
+    //GETTERS
+
+    public static void getAbonamenteLunare(Connection conn, ArrayList<Data> data) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        try {
+            String query = "SELECT serie,validare_initiala,ultima_validare,last_validated FROM Abonamente WHERE abonament_lunar=?";
+            preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setBoolean(1, true);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                data.add(new Data(rs.getString(1), 0, rs.getTimestamp(2), rs.getTimestamp(3), rs.getTimestamp(4)));
+            }
+            rs.close();
+            preparedStatement.close();
+        } catch (Exception e) {
+            preparedStatement.close();
+        }
+        //return null;
+    }
+
+//    public static void getAbonamenteZi(Connection conn, ArrayList<Data> data) throws SQLException {
+//        PreparedStatement preparedStatement = null;
+//        try {
+//            String query = "SELECT serie,validare_initiala,ultima_validare,last_validated FROM Abonamente WHERE abonament_lunar=?";
+//            preparedStatement = conn.prepareStatement(query);
+//            preparedStatement.setBoolean(1, true);
+//            ResultSet rs = preparedStatement.executeQuery();
+//
+//            while (rs.next()) {
+//                data.add(new Data(rs.getString(1), 0, rs.getTimestamp(2), rs.getTimestamp(3), rs.getTimestamp(4)));
+//            }
+//            rs.close();
+//            preparedStatement.close();
+//        } catch (Exception e) {
+//            preparedStatement.close();
+//        }
+//        //return null;
+//    }
 
     //UNIQUE SERIAL GENERATOR
     public static final class SessionIdentifierGenerator {

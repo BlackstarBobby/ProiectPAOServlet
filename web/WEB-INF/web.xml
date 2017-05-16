@@ -24,6 +24,24 @@
         <url-pattern>/ValidareCartela</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>VerificareCartela</servlet-name>
+        <servlet-class>Servlets.VerificareCartela</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerificareCartela</servlet-name>
+        <url-pattern>/VerificareCartela</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StareaCartelelor</servlet-name>
+        <servlet-class>Servlets.StareaCartelelor</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StareaCartelelor</servlet-name>
+        <url-pattern>/StareaCartelelor</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
 
         <welcome-file>home</welcome-file>

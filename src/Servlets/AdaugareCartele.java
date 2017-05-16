@@ -8,10 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static utils.Database.*;
+import static Connectivity.Database.*;
 
 /**
  * Created by bobby on 10-05-2017.
@@ -24,7 +23,6 @@ public class AdaugareCartele extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 
         Connection connection = null;
-        PreparedStatement preparedStatement = null;
         try {
             connection = database.getConnection();
 
@@ -42,7 +40,6 @@ public class AdaugareCartele extends HttpServlet {
             connection.close();
         } catch (Exception e) {
             connection.close();
-            preparedStatement.close();
         }
     }
 
