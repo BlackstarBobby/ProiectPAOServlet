@@ -9,13 +9,19 @@ import java.sql.Timestamp;
 public class Data {
 
     private String Serial;
+    private Integer calatoriiInitiale;
     private Integer calatoriiRamase;
     private Timestamp validareInitiala;
     private Timestamp dataExpirarii;
     private Timestamp ultimaValidare;
 
-    public Data(String serial, Integer calatoriiRamase, Timestamp validareInitiala, Timestamp dataExpirarii, Timestamp ultimaValidare) {
+    public Integer getCalatoriiInitiale() {
+        return calatoriiInitiale;
+    }
+
+    public Data(String serial, Integer calatoriiInitiale, Integer calatoriiRamase, Timestamp validareInitiala, Timestamp dataExpirarii, Timestamp ultimaValidare) {
         Serial = serial;
+        this.calatoriiInitiale = calatoriiInitiale;
         this.calatoriiRamase = calatoriiRamase;
         this.validareInitiala = validareInitiala;
         this.dataExpirarii = dataExpirarii;

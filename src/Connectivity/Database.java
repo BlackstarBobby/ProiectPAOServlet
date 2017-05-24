@@ -255,7 +255,7 @@ public class Database {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                data.add(new Data(rs.getString(1), 0, rs.getTimestamp(2), rs.getTimestamp(3), rs.getTimestamp(4)));
+                data.add(new Data(rs.getString(1), 0,0, rs.getTimestamp(2), rs.getTimestamp(3), rs.getTimestamp(4)));
             }
             rs.close();
             preparedStatement.close();
@@ -265,24 +265,43 @@ public class Database {
         //return null;
     }
 
-//    public static void getAbonamenteZi(Connection conn, ArrayList<Data> data) throws SQLException {
-//        PreparedStatement preparedStatement = null;
-//        try {
-//            String query = "SELECT serie,validare_initiala,ultima_validare,last_validated FROM Abonamente WHERE abonament_lunar=?";
-//            preparedStatement = conn.prepareStatement(query);
-//            preparedStatement.setBoolean(1, true);
-//            ResultSet rs = preparedStatement.executeQuery();
-//
-//            while (rs.next()) {
-//                data.add(new Data(rs.getString(1), 0, rs.getTimestamp(2), rs.getTimestamp(3), rs.getTimestamp(4)));
-//            }
-//            rs.close();
-//            preparedStatement.close();
-//        } catch (Exception e) {
-//            preparedStatement.close();
-//        }
-//        //return null;
-//    }
+    public static void getAbonamenteZi(Connection conn, ArrayList<Data> data) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        try {
+            String query = "SELECT serie,validare_initiala,ultima_validare,last_validated FROM Abonamente WHERE abonament_zi=?";
+            preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setBoolean(1, true);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                data.add(new Data(rs.getString(1),0, 0, rs.getTimestamp(2), rs.getTimestamp(3), rs.getTimestamp(4)));
+            }
+            rs.close();
+            preparedStatement.close();
+        } catch (Exception e) {
+            preparedStatement.close();
+        }
+        //return null;
+    }
+
+    public static void getCartele(Connection conn,ArrayList<Data> data) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        try {
+            String query = "SELECT serie,calatorii,calatorii_ramase,validare_initiala, ultima_validare FROM Abonamente WHERE cartela=?";
+            preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setBoolean(1, true);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                data.add(new Data(rs.getString(1),rs.getInt(2), rs.getInt(3), rs.getTimestamp(4), rs.getTimestamp(5), null));
+            }
+            rs.close();
+            preparedStatement.close();
+        } catch (Exception e) {
+            preparedStatement.close();
+        }
+    }
+
 
     //UNIQUE SERIAL GENERATOR
     public static final class SessionIdentifierGenerator {

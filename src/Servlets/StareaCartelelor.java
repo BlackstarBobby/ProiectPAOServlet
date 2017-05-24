@@ -24,30 +24,31 @@ public class StareaCartelelor extends HttpServlet {
     @Resource(name = "jdbc/metro")
     private DataSource database;
 
-    protected void processRequest(HttpServletRequest request,HttpServletResponse response) throws SQLException, ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         Connection connection = null;
-        String tableAbL = "", tableAbZi="",tableCartele="";
-        try{
+        try {
             connection = database.getConnection();
 
-
-
-            if (request.getParameter("abonamentLunar")!=null){
-                ArrayList<Data> data = new ArrayList<>();
-                getAbonamenteLunare(connection,data);
+            ArrayList<Data> data = new ArrayList<>();
+            if (request.getParameter("abonamentLunar") != null) {
+                getAbonamenteLunare(connection, data);
                 request.setAttribute("tableAbonamenteLunare", data);
             }
 
-            if (request.getParameter("abonamentZi")!=null){
-
+            if (request.getParameter("abonamentZi") != null) {
+                data = new ArrayList<>();
+                getAbonamenteZi(connection, data);
+                request.setAttribute("tableAbonamenteZi", data);
             }
 
-            if (request.getParameter("cartela")!=null){
-
+            if (request.getParameter("cartela") != null) {
+                data = new ArrayList<>();
+                getCartele(connection, data);
+                request.setAttribute("tableCartele", data);
             }
 
             connection.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             connection.close();
         }
         request.getRequestDispatcher("/StareaCartelelor.jsp").forward(request, response);
@@ -55,7 +56,7 @@ public class StareaCartelelor extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            processRequest(request,response);
+            processRequest(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -63,7 +64,7 @@ public class StareaCartelelor extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            processRequest(request,response);
+            processRequest(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

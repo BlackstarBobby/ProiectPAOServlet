@@ -34,8 +34,14 @@ public class VerificareCartela extends HttpServlet {
             }
             switch (checkType(connection, seria)) {
                 case "abonament": {
-                    message2 = String.valueOf(checkLastValidation(connection, seria));
-                    request.setAttribute("message2", message2);
+
+                    double min = checkLastValidation(connection, seria);
+                    if(min<15.0) {
+                        message2 = String.valueOf(min);
+                        request.setAttribute("message2", message2);
+                    }else{
+                        request.setAttribute("message2", "Au trecut mai mult de 15 min!");
+                    }
                     break;
                 }
                 case "cartela": {

@@ -10,7 +10,11 @@
 <html>
 <head>
     <title>MetroExpress - Starea Cartelelor</title>
-    <style> td,tr,th{ border:1px solid black}</style>
+    <style> td, tr, th {
+        border: 1px solid black
+    }
+
+    </style>
 </head>
 <body>
 
@@ -20,24 +24,20 @@
     <input type="checkbox" name="abonamentZi"> Abonament Zi
     <br>
     <input type="checkbox" name="cartela"> Cartela
-    <input type="checkbox" name="10calatorii"> 10 Calatorii
-    <input type="checkbox" name="2calatorii"> 2 Calatorii
     <br>
     <input type="submit" value="Submit">
 </form>
 
-<%--${tableAbonamenteLunare}--%>
-<%--${tableAbonamenteZi}--%>
-<%--${tableCartele}--%>
+<a href="index.jsp">Back</a>
 
 <%--<c:if test = "${tableAbonamenteLunare.size()}">--%>
 <h2>Abonamente Lunare</h2>
 <table style="border: 1px solid black">
     <tr>
-        <td>Seria</td>
-        <td>Validare Initiala</td>
-        <td>Data Expirarii</td>
-        <td>Ultima Validare</td>
+        <th>Seria</th>
+        <th>Validare Initiala</th>
+        <th>Data Expirarii</th>
+        <th>Ultima Validare</th>
     </tr>
     <c:forEach var="element" items="${tableAbonamenteLunare}">
         <tr>
@@ -45,6 +45,44 @@
             <td>${element.getValidareInitiala()}</td>
             <td>${element.getDataExpirarii()}</td>
             <td>${element.getUltimaValidare()}</td>
+        </tr>
+    </c:forEach>
+</table>
+
+<h2>Abonamente Zi</h2>
+<table style="border: 1px solid black">
+    <tr>
+        <th>Seria</th>
+        <th>Validare Initiala</th>
+        <th>Data Expirarii</th>
+        <th>Ultima Validare</th>
+    </tr>
+    <c:forEach var="element" items="${tableAbonamenteZi}">
+        <tr>
+            <td>${element.getSerial()}</td>
+            <td>${element.getValidareInitiala()}</td>
+            <td>${element.getDataExpirarii()}</td>
+            <td>${element.getUltimaValidare()}</td>
+        </tr>
+    </c:forEach>
+</table>
+
+<h2>Cartele</h2>
+<table style="border: 1px solid black">
+    <tr>
+        <th>Seria</th>
+        <th>Calatorii Initiale</th>
+        <th>Calatorii Ramase</th>
+        <th>Validare Initiala</th>
+        <th>Data Expirarii</th>
+    </tr>
+    <c:forEach var="element" items="${tableCartele}">
+        <tr>
+            <td>${element.getSerial()}</td>
+            <td>${element.getCalatoriiInitiale()}</td>
+            <td>${element.getCalatoriiRamase()}</td>
+            <td>${element.getValidareInitiala()}</td>
+            <td>${element.getDataExpirarii()}</td>
         </tr>
     </c:forEach>
 </table>
