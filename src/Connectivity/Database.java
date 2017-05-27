@@ -160,6 +160,7 @@ public class Database {
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             Timestamp expDate = resultSet.getTimestamp(1);
+            if(expDate==null) return 15.0;
             Timestamp timeNow = Timestamp.valueOf(LocalDateTime.now());
             resultSet.close();
             preparedStatement.close();

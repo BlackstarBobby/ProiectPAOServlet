@@ -32,7 +32,7 @@ public class ValidareCartela extends HttpServlet {
                 return;
             switch (checkType(connection, seria)) {
                 case "abonament": {
-                    if (checkExpirationDate(connection, seria) && checkLastValidation(connection, seria) > 15.0) {
+                    if (checkExpirationDate(connection, seria) && checkLastValidation(connection, seria) >= 15.0) {
                         message = "You can pass!";
                         updateLastValidated(connection, seria, "abonament");
                     } else
@@ -51,7 +51,8 @@ public class ValidareCartela extends HttpServlet {
 
             request.setAttribute("message", message);
             request.getRequestDispatcher("/ValidareCartela.jsp").forward(request, response);
-        } catch (SQLException e) {
+            connection.close();
+        } catch (Exception e) {
             connection.close();
             preparedStatement.close();
         }

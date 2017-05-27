@@ -50,6 +50,7 @@ public class VerificareCartela extends HttpServlet {
                     break;
                 }
             }
+            connection.close();
         } catch (Exception e) {
             connection.close();
         }
